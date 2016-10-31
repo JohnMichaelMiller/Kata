@@ -1,0 +1,1 @@
+﻿Football Standing[0] = Rank:1 Team: Arsenal, Goals For 79, Goals Against: 36, Goal Diff: 43
