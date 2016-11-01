@@ -11,12 +11,12 @@ namespace Kata4
             throw new NotImplementedException();
         }
 
-        IEnumerable<IItem> IRepository<IFootballStanding>.GetMinimumDifferential()
+        IEnumerable<IFootballStanding> IRepository<IFootballStanding>.GetMinimumDifferential()
         {
             IEnumerable<IFootballStanding> result =
                 from w in this
-                where -w.GoalDifferential ==
-                      this.Min(d => -d.GoalDifferential)
+                where Math.Abs(w.GoalDifferential) ==
+                      this.Min(d => Math.Abs(d.GoalDifferential))
                 select w;
             return result;
         }

@@ -6,12 +6,8 @@ namespace Kata4
 {
     public abstract class WeatherDataPointRepository : List<IWeatherDataPoint>, IRepository<IWeatherDataPoint>
     {
-        public void AddLine(int lineCount, string line)
-        {
-            throw new NotImplementedException();
-        }
 
-        IEnumerable<IItem> IRepository<IWeatherDataPoint>.GetMinimumDifferential()
+        IEnumerable<IWeatherDataPoint> IRepository<IWeatherDataPoint>.GetMinimumDifferential()
         {
             IEnumerable<IWeatherDataPoint> result =
                 from w in this

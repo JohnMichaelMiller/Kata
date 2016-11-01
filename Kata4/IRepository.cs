@@ -7,8 +7,7 @@ namespace Kata4
 {
     public interface IRepository<T> where T : class
     {
-        IEnumerable<IItem> GetMinimumDifferential();
-        void AddLine(int lineCount, string line);
+        IEnumerable<T> GetMinimumDifferential();
     }
 }
 

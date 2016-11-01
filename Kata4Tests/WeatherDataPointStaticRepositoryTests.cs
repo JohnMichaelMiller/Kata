@@ -22,7 +22,7 @@ namespace Kata4.Tests
         }
 
         [TestMethod()]
-        public void WeatherStaticRepositoryHasCorrectMinimumTemperatureDifferential()
+        public void WeatherStaticRepositoryHasCorrectMinimumGoalDifferential()
         {
             var repo = new WeatherDataPointStaticRepository();
             IEnumerable<IItem> result = ((IRepository<IWeatherDataPoint>) repo).GetMinimumDifferential();
