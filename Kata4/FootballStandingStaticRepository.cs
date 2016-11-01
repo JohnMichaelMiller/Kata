@@ -5,9 +5,8 @@ using System.Linq.Expressions;
 
 namespace Kata4
 {
-    public class FootballStandingStaticRepository : FootballStandingRepositoryBase
+    public class FootballStandingStaticRepository : FootballStandingRepository
     {
-
         public FootballStandingStaticRepository()
         {
             /*

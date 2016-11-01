@@ -4,12 +4,11 @@ using System.Linq.Expressions;
 
 namespace Kata4
 {
-    public class WeatherFileRepository : WeatherDataPointRepositoryBase
+    public class WeatherDataPointFileRepository : WeatherDataPointRepository
     {
-        public WeatherFileRepository()
+        public WeatherDataPointFileRepository()
         {
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\John\Source\Repos\Kata\Kata4\weather.dat");
-            int day, minTemp, maxTemp;
             int lineCount = 0;
 
             foreach (string line in lines)
@@ -22,9 +21,9 @@ namespace Kata4
 
                 if (lineCount > 1 && line.Length > 0 && line.Substring(2,2) != "mo")
                 {
-                    day = Convert.ToInt32(line.Substring(2, 2));
-                    maxTemp = Convert.ToInt32(line.Substring(6, 2));
-                    minTemp = Convert.ToInt32(line.Substring(12, 2));
+                    var day = Convert.ToInt32(line.Substring(2, 2));
+                    var maxTemp = Convert.ToInt32(line.Substring(6, 2));
+                    var minTemp = Convert.ToInt32(line.Substring(12, 2));
                     this.Add(new WeatherDataPoint(day, maxTemp, minTemp));
                 }
             }

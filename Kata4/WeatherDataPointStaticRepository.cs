@@ -5,10 +5,10 @@ using System.Linq.Expressions;
 
 namespace Kata4
 {
-    public class WeatherStaticRepository : WeatherDataPointRepositoryBase
-    {
+    public class WeatherDataPointStaticRepository : WeatherDataPointRepository
 
-        public WeatherStaticRepository()
+    { 
+        public WeatherDataPointStaticRepository()
         {
           
             this.Add(new WeatherDataPoint(1, 88, 59));

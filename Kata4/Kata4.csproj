@@ -40,19 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FootballStandingRepository.cs" />
+    <Compile Include="IItem.cs" />
     <Compile Include="IFootballStanding.cs" />
-    <Compile Include="IFootballStandingRepository.cs" />
-    <Compile Include="IWeatherDataPointRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="IWeatherDataPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FootballStanding.cs" />
     <Compile Include="WeatherDataPoint.cs" />
-    <Compile Include="FootballStandingRepositoryBase.cs" />
-    <Compile Include="WeatherDataPointRepositoryBase.cs" />
+    <Compile Include="WeatherDataPointFileRepository.cs" />
     <Compile Include="FootballStandingFileRepository.cs" />
-    <Compile Include="WeatherFileRepository.cs" />
     <Compile Include="FootballStandingStaticRepository.cs" />
-    <Compile Include="WeatherStaticRepository.cs" />
+    <Compile Include="WeatherDataPointRepository.cs" />
+    <Compile Include="WeatherDataPointStaticRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

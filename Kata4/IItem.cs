@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kata4
 {
-    public abstract class FootballStandingRepositoryBase : List<IFootballStanding>, IFootballStandingRepository<IFootballStanding>
+    public interface IItem:IComparable<IItem>
     {
     }
 }

@@ -12,23 +12,19 @@ namespace Kata4.Tests
 {
     [TestClass()]
     [UseReporter(typeof(DiffReporter))]
-    public class WeatherFileRepositoryTests
+    public class WeatherDataPointFileRepositoryTests
     {
         [TestMethod()]
         public void WeatherFileRepositoryTest()
         {
-            var repo = new WeatherFileRepository();
+            var repo = new WeatherDataPointFileRepository();
             Approvals.VerifyAll(repo, "Weather Data Point");
         }
     [TestMethod()]
     public void WeatherFileRepositoryHasCorrectMinimumTemperatureDifferential()
     {
-        var repo = new WeatherFileRepository();
-        var result =
-            from w in repo
-            where -w.TemperatureDifferential ==
-                repo.Min(d => -d.TemperatureDifferential)
-            select w;
+        var repo = new WeatherDataPointFileRepository();
+        var result = ((IRepository<IWeatherDataPoint>) repo).GetMinimumDifferential();
 
         Approvals.VerifyAll(result, "Weather Data Point");
     }

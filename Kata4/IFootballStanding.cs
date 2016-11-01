@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kata4
 {
-    public interface IFootballStanding:IComparable<IFootballStanding>
+    public interface IFootballStanding:IItem, IComparable<IFootballStanding>
     {
 
         //       Team            P     W   L   D     F      A    Pts

@@ -24,11 +24,7 @@ namespace Kata4.Tests
     public void FootballStandingFileRepositoryHasCorrectMinimumTemperatureDifferential()
     {
         var repo = new FootballStandingFileRepository();
-        var result =
-            from w in repo
-            where -w.GoalDifferential ==
-                repo.Min(d => -d.GoalDifferential)
-            select w;
+        var result = ((IRepository<IFootballStanding>) repo).GetMinimumDifferential();
 
         Approvals.VerifyAll(result, "Football Standing");
     }

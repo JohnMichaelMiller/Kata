@@ -65,11 +65,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FootballStandingTests.cs" />
+    <Compile Include="WeatherDataPointStaticRepositoryTests.cs" />
     <Compile Include="WeatherDataPointTests.cs" />
     <Compile Include="FootballStandingFileRepositoryTests.cs" />
-    <Compile Include="WeatherFileRepositoryTests.cs" />
+    <Compile Include="WeatherDataPointFileRepositoryTests.cs" />
     <Compile Include="FootballStandingStaticRepositoryTests.cs" />
-    <Compile Include="WeatherStaticRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kata4\Kata4.csproj">

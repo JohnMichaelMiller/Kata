@@ -4,9 +4,6 @@ namespace Kata4
 {
     public class FootballStanding : IFootballStanding
     {
-        private int _rank, _goalsFor, _goalsAgainst;
-        private string _team;
-
         public FootballStanding(int rank, string team, int goalsFor, int goalsAgainst)
         {
             this.Rank = rank;
@@ -15,49 +12,30 @@ namespace Kata4
             this.GoalsAgainst = goalsAgainst;
         }
 
-        public int Rank
-        {
-            get { return _rank; }
-            set { _rank = value; }
-        }
+        public int Rank { get; set; }
 
-        public string Team
-        {
-            get { return _team; }
-            set { _team = value; }
-        }
+        public string Team { get; set; }
 
-        public int GoalsFor
-        {
-            get { return _goalsFor; }
-            set { _goalsFor = value; }
-        }
+        public int GoalsFor { get; set; }
 
-        public int GoalsAgainst
-        {
-            get { return _goalsAgainst; }
-            set { _goalsAgainst = value; }
-        }
+        public int GoalsAgainst { get; set; }
 
-        public int GoalDifferential
-        {
-            get { return GoalsFor - GoalsAgainst; }
-        }
+        public int GoalDifferential => GoalsFor - GoalsAgainst;
 
         public int CompareTo(IFootballStanding other)
         {
-            return this.Team.CompareTo(other.Team);
+            return string.Compare(Team, other.Team, StringComparison.Ordinal);
+        }
+
+        public int CompareTo(IItem other)
+        {
+            throw new NotImplementedException();
         }
 
         public override string ToString()
         {
-            return string.Format(
-                "Rank:{0} Team: {1}, Goals For {2}, Goals Against: {3}, Goal Diff: {4}", 
-                Rank.ToString("D"),
-                Team.TrimEnd(), 
-                GoalsFor.ToString("D"), 
-                GoalsAgainst.ToString("D"), 
-                GoalDifferential.ToString("D"));
+            return
+                $"Rank:{Rank:D} Team: {Team.TrimEnd()}, Goals For {GoalsFor:D}, Goals Against: {GoalsAgainst:D}, Goal Diff: {GoalDifferential:D}";
         }
     }
 
