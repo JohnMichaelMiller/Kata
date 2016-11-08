@@ -1,0 +1,4 @@
+﻿Key A, Hash Length 16
+Key A'asia, Hash Length 16
+Key A's, Hash Length 16
+Key AA, Hash Length 16
