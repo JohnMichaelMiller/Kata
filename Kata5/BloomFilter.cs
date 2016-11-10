@@ -3,30 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Kata5
+namespace DifferentialAbstraction
 {
     public class BloomFilter 
     {
-        private Dictionary<string, byte[]> _words;
+        private Dictionary<string, int> ReferenceWords;
         public BitArray Bits { get; private set; }
 
-        public BloomFilter(Dictionary<string, byte[]> words)
+        public BloomFilter(Dictionary<string, int> words)
         {
-            this._words = words;
-            this.Bits =  GetBloomFilter();
+            this.ReferenceWords = words;
+            this.Bits =  LoadBloomFilterFromWordDictionary();
         }
 
-        private BitArray GetBloomFilter()
+        private BitArray LoadBloomFilterFromWordDictionary()
         {
-            Bits = new BitArray(_words.FirstOrDefault().Value.Length*8);
+            Bits = new BitArray(32);
 
-            foreach (var word in _words)
+            foreach (var word in ReferenceWords)
             {
-                byte[] hash = word.Value;
+                
+                BitArray ba = new BitArray(new int[] {word.Value});
 
-                BitArray ba = new BitArray(hash);
-
-                Bits.Or(ba);
+                Bits = MergeWordWiithBits(ba);
 
             }
             return Bits;
@@ -34,21 +33,47 @@ namespace Kata5
 
         public bool FindWord(string word)
         {
-            byte[] hash = WordHash.GetHash(word);
-            BitArray ba1 = new BitArray(hash);
-            //BitArray ba2 = ba1;
-            //BitArray ba3 = ba1.And(Bits);
-            return CompareArrays(ba1, Bits);
+            return CompareWordToBloom(new BitArray(WordHash.GetHash(word)), Bits);
         }
 
-        public bool CompareArrays(BitArray wordArray, BitArray bloomArray)
+        public bool CompareWordToBloom(BitArray word, BitArray bloomArray)
         {
-            for (int i = wordArray.Count - 1; i >= 0; i--)
+            Bits = bloomArray;
+
+            return CompareWordToBloom(word);
+        }
+
+        /// <summary>
+        /// When a set bit in the word is not set in the bloom the word is not in the dictionary.
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
+        public bool CompareWordToBloom(BitArray word)
+        {
+            for (int i = word.Count - 1; i >= 0; i--)
             {
-                if (wordArray[i])
-                if (!bloomArray[i]) return false;
+                if (word[i])
+                    if (!Bits[i]) return false;
             }
             return true;
+        }
+
+
+        /// <summary>
+        /// Set the bits in the bloom that are set in the word.
+        /// </summary>
+        /// <param name="words">A BitArray containing the hash of the word.</param>
+        /// <returns></returns>
+        public BitArray MergeWordWiithBits(BitArray words)
+        {
+            for (int i = words.Count - 1; i >= 0; i--)
+            {
+                if (words[i] && !Bits[i])
+                {
+                    Bits[i] = true;
+                }
+            }
+            return Bits;
         }
     }
 }

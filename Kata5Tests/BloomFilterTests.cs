@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Kata5;
-using System;
+using DifferentialAbstraction;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,39 +10,23 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalUtilities.Utilities;
 
-namespace Kata5.Tests
+namespace DifferentialAbstraction.Tests
 {
     [TestClass()]
     public class BloomFilterTests
     {
-        private Dictionary<string, byte[]> words;
-        private BloomFilter bm;
+        const string fileName = @"C:\Users\John\Source\Repos\Kata\Kata5\wordlist.txt";
+        private readonly BloomFilter _bfilter;
+
+        public BloomFilter Bfilter
+        {
+            get { return _bfilter; }
+        }
 
         public BloomFilterTests()
         {
-            words = new WordHash(@"C:\Users\John\Source\Repos\Kata\Kata5\wordlist.txt");
-            bm = new BloomFilter(words);
-        }
-
-        [TestMethod()]
-        [UseReporter(typeof(DiffReporter))]
-        public void BloomFilterTest()
-        {
-            bool[] result = new bool[bm.Bits.Count];
-            bm.Bits.CopyTo(result, 0);
-            Approvals.VerifyAll(result, "Bits");
-        }
-
-        [TestMethod()]
-        public void FindWords()
-        {
-            Assert.IsTrue(bm.FindWord("A"));
-            Assert.IsTrue(bm.FindWord("AA"));
-            Assert.IsFalse(bm.FindWord("B"));
-            Assert.IsFalse(bm.FindWord("C"));
-            Assert.IsFalse(bm.FindWord("D"));
-            Assert.IsFalse(bm.FindWord("E"));
-
+            Dictionary<string, int> words = new WordHash(fileName);
+            _bfilter = new BloomFilter(words);
         }
 
         [TestMethod()]
@@ -66,9 +49,10 @@ namespace Kata5.Tests
 
             bloomBA = wordBA;
 
-            result = bm.CompareArrays(wordBA, bloomBA);
+            result = Bfilter.CompareWordToBloom(wordBA, bloomBA);
             Assert.IsTrue(result);
         }
+
         [TestMethod()]
         public void WhenWordBitsAreFalseAndBloomBitsAreTrueTheyShouldCompareAsEqual()
         {
@@ -90,9 +74,10 @@ namespace Kata5.Tests
 
             bloomBA[5] = true;
 
-            result = bm.CompareArrays(wordBA, bloomBA);
+            result = Bfilter.CompareWordToBloom(wordBA, bloomBA);
             Assert.IsTrue(result);
         }
+
         [TestMethod()]
         public void WhenWordBitsAreTrueAndBloomBitsAreFalseTheyShouldCompareAsNotEqual()
         {
@@ -114,8 +99,37 @@ namespace Kata5.Tests
 
             bloomBA[1] = false;
 
-            result = bm.CompareArrays(wordBA, bloomBA);
+            result = Bfilter.CompareWordToBloom(wordBA, bloomBA);
             Assert.IsTrue(result);
         }
+
+        [TestMethod()]
+        public void MergeArraysTest()
+        {
+            BitArray word = new BitArray(new int[] {128});
+            Bfilter.MergeWordWiithBits(word);
+        }
+
+        [TestMethod()]
+        public void FindWords()
+        {
+            Assert.IsTrue(Bfilter.FindWord("A"), "bm.FindWord('A') should be true and was not.");
+            Assert.IsTrue(Bfilter.FindWord("AA"), "bm.FindWord('AA') should be true and was not.");
+            Assert.IsFalse(Bfilter.FindWord("B"), "bm.FindWord('B') should be false and was not. ");
+            Assert.IsFalse(Bfilter.FindWord("C"), "bm.FindWord('C') should be false and was not. ");
+            Assert.IsFalse(Bfilter.FindWord("D"), "bm.FindWord('D') should be false and was not. ");
+            Assert.IsFalse(Bfilter.FindWord("E"), "bm.FindWord('E') should be false and was not. ");
+
+        }
+
+        [TestMethod()]
+        [UseReporter(typeof(DiffReporter))]
+        public void BloomFilterTest()
+        {
+            var result = new bool[Bfilter.Bits.Count];
+            Bfilter.Bits.CopyTo(result, 0);
+            Approvals.VerifyAll(result, "Bits");
+        }
+
     }
 }

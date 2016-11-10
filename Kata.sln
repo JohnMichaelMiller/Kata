@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata4", "Kata4\Kata4.csproj", "{E0D3BAEE-3CA0-417E-958F-7B0D1CA1D7FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Differential Abstraction", "Kata4\Differential Abstraction.csproj", "{E0D3BAEE-3CA0-417E-958F-7B0D1CA1D7FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata4Tests", "Kata4Tests\Kata4Tests.csproj", "{9524B4FB-6F08-4887-8757-E8BA3DFD075C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Differential Abstraction Tests", "Kata4Tests\Differential Abstraction Tests.csproj", "{9524B4FB-6F08-4887-8757-E8BA3DFD075C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABB5376D-DD30-467C-8495-BA5E8300DBD8}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,9 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata", "Kata.csproj", "{6DE5FC73-2C7B-4DA1-A4C0-C10AD6DA746C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata5", "Kata5\Kata5.csproj", "{DAB6CC51-3BA3-4794-931E-DD7AB0D2DAD7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloom Filter", "Kata5\Bloom Filter.csproj", "{DAB6CC51-3BA3-4794-931E-DD7AB0D2DAD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata5Tests", "Kata5Tests\Kata5Tests.csproj", "{D84DA69C-7B9A-480A-9859-392DBB04A78F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloom Filter Tests", "Kata5Tests\Bloom Filter Tests.csproj", "{D84DA69C-7B9A-480A-9859-392DBB04A78F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

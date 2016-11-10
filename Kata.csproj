@@ -51,14 +51,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Kata4Tests\Kata4Tests.csproj">
+    <ProjectReference Include="Kata4Tests\Differential Abstraction Tests.csproj">
       <Project>{9524b4fb-6f08-4887-8757-e8ba3dfd075c}</Project>
-      <Name>Kata4Tests</Name>
+      <Name>Differential Abstraction Tests</Name>
     </ProjectReference>
-    <ProjectReference Include="Kata4\Kata4.csproj">
+    <ProjectReference Include="Kata4\Differential Abstraction.csproj">
       <Project>{e0d3baee-3ca0-417e-958f-7b0d1ca1d7fa}</Project>
-      <Name>Kata4</Name>
+      <Name>Differential Abstraction</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
