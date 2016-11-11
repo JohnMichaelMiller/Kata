@@ -1,1 +1,0 @@
-﻿Football Standing[0] = Rank:5 Team: Leeds, Goals For 53, Goals Against: 37, Goal Diff: 16

@@ -1,0 +1,10 @@
+﻿Dictionary Merge Arrays
+Add Dictionary Word A Bits[31]=True
+Add Dictionary Word A'asia Bits[18]=True
+Add Dictionary Word A's Bits[51]=True
+Add Dictionary Word AA Bits[7]=True
+Add Dictionary Word AA's Bits[27]=True
+Add Dictionary Word AAA Bits[43]=True
+Add Dictionary Word AAM Bits[29]=True
+Add Dictionary Word AB Bits[17]=True
+Add Dictionary Word AB's Bits[16]=True

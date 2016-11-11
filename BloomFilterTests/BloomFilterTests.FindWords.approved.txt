@@ -1,0 +1,7 @@
+﻿Find Words
+Find A Bits[31]=True
+Find AA Bits[31]=True
+Find B Bits[31]=True
+Find C Bits[31]=True
+Find D Bits[31]=False
+Find E Bits[31]=False

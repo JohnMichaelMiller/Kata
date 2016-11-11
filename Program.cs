@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Kata4;
+using Kata.DifferentialAbstraction;
+using Kata.BloomFilter;
 using System.Linq;
 
 namespace Kata

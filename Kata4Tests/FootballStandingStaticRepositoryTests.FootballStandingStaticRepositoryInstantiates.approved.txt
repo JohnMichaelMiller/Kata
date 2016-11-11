@@ -1,5 +1,0 @@
-﻿Football Standing[0] = Rank:1 Team: Arsenal, Goals For 79, Goals Against: 36, Goal Diff: 43
-Football Standing[1] = Rank:2 Team: Liverpool, Goals For 67, Goals Against: 30, Goal Diff: 37
-Football Standing[2] = Rank:3 Team: Manchester_U, Goals For 87, Goals Against: 45, Goal Diff: 42
-Football Standing[3] = Rank:4 Team: Newcastle, Goals For 74, Goals Against: 52, Goal Diff: 22
-Football Standing[4] = Rank:5 Team: Leeds, Goals For 53, Goals Against: 37, Goal Diff: 16

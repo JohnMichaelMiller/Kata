@@ -1,1 +1,0 @@
-﻿Weather Data Point[0] = Day:14 Min Temp: 59, Max Temp 59, Temp Diff: -2

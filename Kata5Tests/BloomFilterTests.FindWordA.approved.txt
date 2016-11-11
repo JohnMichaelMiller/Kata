@@ -1,1 +1,0 @@
-﻿A=True, B=False, C=False, D=False
